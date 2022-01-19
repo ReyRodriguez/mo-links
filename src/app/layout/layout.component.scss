@@ -1,0 +1,18 @@
+@import "../scss/variables";
+
+* {
+  box-sizing: border-box;
+}
+.main {
+  height: 100%;
+  min-height: 35rem;
+  display: flex;
+  flex-direction: column;
+  background-color: $background-color;
+  &__content {
+    width: 100%;
+  }
+  &__footer {
+    width: 100%;
+  }
+}

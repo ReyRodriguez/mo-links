@@ -1,0 +1,12 @@
+@import "variables";
+@import "fonts";
+.emphasis-blue {
+  color: $primary-blue;
+}
+.emphasis-green {
+  color: $primary-green;
+}
+.emphasis-black {
+  color: $primary-black;
+  font-weight: bolder;
+}
