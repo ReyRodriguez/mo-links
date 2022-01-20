@@ -17,22 +17,22 @@ const routes: Routes = [
                         m => m.HomeModule,
                     ),
             },
-            // {
-            //     path: 'register',
-            //     canActivate: [NotLoggedinGuard],
-            //     loadChildren: () =>
-            //         import('../pages/register/register.module').then(
-            //             m => m.RegisterModule,
-            //         ),
-            // },
-            // {
-            //     path: 'list',
-            //     canActivate: [LoginGuard],
-            //     loadChildren: () =>
-            //         import('../pages/list/list.module').then(
-            //             m => m.ListModule,
-            //         ),
-            // }
+            {
+                path: 'register',
+                //canActivate: [NotLoggedinGuard],
+                loadChildren: () =>
+                    import('../pages/register/register.module').then(
+                        m => m.RegisterModule,
+                    ),
+            },
+            {
+                path: 'login',
+                //canActivate: [LoginGuard],
+                loadChildren: () =>
+                    import('../pages/login/login.module').then(
+                        m => m.LoginModule,
+                    ),
+            }
         ],
     },
 ];

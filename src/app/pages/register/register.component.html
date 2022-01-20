@@ -1,0 +1,28 @@
+<div class="wrapper" [@EnterLeave]="'flyIn'">
+    
+    <div class="form-box" id="registerSection">
+        <img src="../../../assets/img/logo_transparent.png" alt="Links Logo" [routerLink]="['./home']">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <h1>SIGNUP</h1>
+            <fieldset>
+                <label for="name">Full name:</label>
+                <input type="text" formControlName="name">
+               
+                <label for="email">Your email:</label>
+                <input type="email" formControlName="mail">
+                
+                <label for="password">Pasword:</label>
+                <input type="password" formControlName="password">
+            
+            </fieldset>
+        
+            <div class="button-box">
+                <button [ngClass]="!registerForm.valid ? 'primary-button-disabled' : 'primary-button'" type="submit"
+                    [disabled]="!registerForm.valid">SIGNUP</button>
+            </div>
+
+            <p>By Creating account You agree to the <br> <a href="#">Terms of use</a>  and <a href="#">Privacy Polycy</a></p>
+
+        </form>
+    </div>
+</div>
