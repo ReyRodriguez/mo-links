@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
 
   /**
    * @description Sends data to api and redirect depending on status response
+   * store a variable on local storage to simple guard dashboard page
    */
    onSubmit(): void {
     const { mail, password } = this.loginForm.value;

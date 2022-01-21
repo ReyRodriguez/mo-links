@@ -1,7 +1,6 @@
 @import "../../scss/mixins";
 @import "../../scss/variables";
 @import "../../scss/buttons";
-@import "../../scss/fonts";
 
 .wrapper {
   display: flex;
@@ -13,10 +12,21 @@
     width: 30%;
   }
 }
+
+.button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  vertical-align: middle;
+  width: 346px;
+  height: 212px;
+}
 form {
   margin: 10px auto;
   padding: 10px 20px;
-  background: #ffffff;
+  background: $background-color;
   box-shadow: 0px 0px 30px rgba(199, 199, 199, 0.55);
   border-radius: 6px;
 }
@@ -32,7 +42,7 @@ label {
 }
 
 input {
-  background: #ffffff;
+  background: $background-color;
   border: 1px solid #dddddd;
   box-sizing: border-box;
   border-radius: 4px;
@@ -54,15 +64,4 @@ input {
   form {
     max-width: 100%;
   }
-}
-
-.button-box {
-  display: flex;
-  justify-content: center;
-}
-
-.logo {
-  vertical-align: middle;
-  width: 346px;
-  height: 212px;
 }

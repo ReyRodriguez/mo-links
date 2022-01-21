@@ -12,14 +12,14 @@ export class HttpService {
   getUserUrl = 'https://private-anon-9ea0964c59-henrybravo.apiary-mock.com/user/1';
   userLoginUrl = 'https://private-anon-8bf6b557c3-henrybravo.apiary-mock.com/login';
   userSignUpUrl = 'https://private-anon-8bf6b557c3-henrybravo.apiary-mock.com/register';
+  
   constructor(private http: HttpClient) { }
 
-   getLinks() {
+  getLinks() {
     return this.http.get(this.linksUrl,{responseType: 'text'}).pipe(
-        catchError(this.handleError)
-      );
+      catchError(this.handleError)
+    );
   }
-
 
   getUser() {
     return this.http.get(`${this.getUserUrl}`).pipe(
