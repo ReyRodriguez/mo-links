@@ -1,7 +1,10 @@
-<h1>home works!</h1>
-<nav>
-    <ul>
-      <li><a routerLink="../login" routerLinkActive="active">Login</a></li>
-      <li><a routerLink="../register" routerLinkActive="active">Register</a></li>
-    </ul>
-</nav>
+
+<div class="wrapper" [@EnterLeave]="'flyIn'">
+  <img src="../../../assets/img/logo_transparent.png" alt="Links Logo" [routerLink]="['./home']" class="logo">
+  <h1>Welcome to Links, this is some sort of a landing page where you can</h1>
+  <div class="button-box">
+    <a routerLink="../login" routerLinkActive="active" class="primary-button">Login</a> 
+    <strong>or</strong>
+    <a routerLink="../register" routerLinkActive="active" class="primary-button">Register</a>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="link-item" *ngFor="let link of links">
+  <div class="link-info">
+    <a href="{{link.url}}">{{link.url}}</a>
+    <p>{{link.name}}</p>
+  </div>
+  <div class="link-actions">
+    <img src="../../../assets/img/trash.png" alt="delete button" class="delete-button" (click)="remove.emit(link.id)">
+  </div>
+
+</div>

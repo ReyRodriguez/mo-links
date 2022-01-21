@@ -1,0 +1,42 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+@import "../../scss/buttons";
+@import "../../scss/fonts";
+@import "../../scss/utils";
+
+.wrapper {
+  display: flex;
+  .sidebar-menu {
+    // Menu font-size 18px
+    font-size: 1.8rem;
+    // Menu padding 8px
+    padding: 0.8rem;
+    width: 20vw;
+  }
+  .content {
+    // Content padding 8px
+    padding: 0.8rem;
+    width: 80vw;
+  }
+}
+
+form {
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #ffffff;
+  box-shadow: 0px 0px 30px rgba(199, 199, 199, 0.55);
+  border-radius: 6px;
+}
+
+.button-box {
+  margin-top: 1em;
+  display: flex;
+  justify-content: end;
+}
+
+@include small {
+}
+@include medium {
+}
+@include large {
+}

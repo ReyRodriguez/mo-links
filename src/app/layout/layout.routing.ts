@@ -32,6 +32,14 @@ const routes: Routes = [
                     import('../pages/login/login.module').then(
                         m => m.LoginModule,
                     ),
+            },
+            {
+                path: 'dashboard',
+                //canActivate: [LoginGuard],
+                loadChildren: () =>
+                    import('../pages/dashboard/dashboard.module').then(
+                        m => m.DashboardModule,
+                    ),
             }
         ],
     },

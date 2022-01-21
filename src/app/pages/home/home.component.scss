@@ -1,0 +1,37 @@
+@import "../../scss/mixins";
+@import "../../scss/variables";
+@import "../../scss/buttons";
+@import "../../scss/fonts";
+@import "../../scss/utils";
+
+.wrapper {
+  max-width: 80%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.logo {
+  vertical-align: middle;
+  width: 346px;
+  height: 212px;
+}
+
+@include small {
+}
+@include medium {
+}
+@include large {
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-evenly;
+  strong {
+    font-size: 2em;
+    margin: 0 1em;
+  }
+}
