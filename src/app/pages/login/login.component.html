@@ -1,28 +1,33 @@
-<app-header [textButton]="'SIGNUP'" [redirectTo]="'./register'" ></app-header>
+<app-header [textButton]="'SIGNUP'" [redirectTo]="'./register'"></app-header>
 <div class="wrapper" [@EnterLeave]="'flyIn'">
-    
-    
-        <img src="../../../assets/img/logo_transparent.png" alt="Links Logo" [routerLink]="['./home']" class="logo">
-        <div class="form-box" id="registerSection">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                
-                <fieldset>
-                    <h1>LOGIN</h1>
-                    <label for="email">Your email:</label>
-                    <input type="email" formControlName="mail">
-                    
-                    <label for="password">Pasword:</label>
-                    <input type="password" formControlName="password">
-                
-                </fieldset>
-            
-                <div class="button-box">
-                    <button [ngClass]="!loginForm.valid ? 'primary-button-disabled' : 'primary-button'" type="submit"
-                        [disabled]="!loginForm.valid">LOGIN</button>
-                </div>
-    
-            </form>
-        </div>
-        
-    
+  <img
+    src="../../../assets/img/logo_transparent.png"
+    alt="Links Logo"
+    [routerLink]="['./home']"
+    class="logo"
+  />
+  <div class="form-box" id="registerSection">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <fieldset>
+        <h1>LOGIN</h1>
+        <label for="email">Your email:</label>
+        <input type="email" formControlName="mail" />
+
+        <label for="password">Pasword:</label>
+        <input type="password" formControlName="password" />
+      </fieldset>
+
+      <div class="button-box">
+        <button
+          [ngClass]="
+            !loginForm.valid ? 'primary-button-disabled' : 'primary-button'
+          "
+          type="submit"
+          [disabled]="!loginForm.valid"
+        >
+          LOGIN
+        </button>
+      </div>
+    </form>
+  </div>
 </div>

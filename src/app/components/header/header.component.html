@@ -1,10 +1,20 @@
 <div class="wrapper">
-    <div  class="header-logo">
-        <img *ngIf="showLogo" src="../../../assets/img/logo_transparent.png" alt="Links Logo" routerLink='./home'>
-    </div>
-    
-    <div class="header-button">
-        <a class="blue-outline-button" type="button" href="{{'app/' + redirectTo}}" > {{textButton}}</a>
-    </div>
+  <div class="header-logo">
+    <img
+      *ngIf="showLogo"
+      src="../../../assets/img/logo_transparent.png"
+      alt="Links Logo"
+      routerLink="./home"
+    />
+  </div>
 
+  <div class="header-button">
+    <a
+      class="blue-outline-button"
+      type="button"
+      href="{{ 'app/' + redirectTo }}"
+    >
+      {{ textButton }}</a
+    >
+  </div>
 </div>

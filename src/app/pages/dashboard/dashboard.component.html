@@ -1,25 +1,38 @@
-<app-header [textButton]="'LOGOUT'" [redirectTo]="'./home'" [showLogo]="true" ></app-header>
+<app-header
+  [textButton]="'LOGOUT'"
+  [redirectTo]="'./home'"
+  [showLogo]="true"
+></app-header>
 <div class="wrapper" [@EnterLeave]="'flyIn'">
-        <div class="sidebar-menu">
-            <app-user-info class="book-list" [user]="user$" ></app-user-info> 
-        </div>
-      <div class="content">
-        <div class="form-box" id="registerSection">
-            <form [formGroup]="linksForm" (ngSubmit)="onSubmit()">
-                
-                    <label for="url">Url to save</label>
-                    <input type="text" formControlName="url">
-                   
-                    <label for="name">Name of url</label>
-                    <input type="tect" formControlName="name">
+  <div class="sidebar-menu">
+    <app-user-info class="link-list" [user]="user$"></app-user-info>
+  </div>
+  <div class="content">
+    <div class="form-box" id="registerSection">
+      <form [formGroup]="linksForm" (ngSubmit)="onSubmit()">
+        <label for="url">Url to save</label>
+        <input type="text" formControlName="url" />
 
-                <div class="button-box">
-                    <button [ngClass]="!linksForm.valid ? 'primary-button-disabled' : 'primary-button'" type="submit"
-                        [disabled]="!linksForm.valid">ADD</button>
-                </div>
-    
-            </form>
-        </div> 
-        <app-links-list class="links-list" [links]="links$ | async" (remove)="onRemove($event)"></app-links-list> 
-      </div>
+        <label for="name">Name of url</label>
+        <input type="tect" formControlName="name" />
+
+        <div class="button-box">
+          <button
+            [ngClass]="
+              !linksForm.valid ? 'primary-button-disabled' : 'primary-button'
+            "
+            type="submit"
+            [disabled]="!linksForm.valid"
+          >
+            ADD
+          </button>
+        </div>
+      </form>
+    </div>
+    <app-links-list
+      class="links-list"
+      [links]="links$ | async"
+      (remove)="onRemove($event)"
+    ></app-links-list>
+  </div>
 </div>

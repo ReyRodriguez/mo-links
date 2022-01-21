@@ -28,13 +28,13 @@
   font-weight: bold;
   border-radius: 4px;
   padding: 10px 24px;
-  color: #008df3;
-  border: 2px solid #008df3;
+  color: $primary-ligth-blue;
+  border: 2px solid $primary-ligth-blue;
   display: inline-block;
   text-align: center;
   &:hover {
     transition-delay: 0.2s;
-    background-color: #008df3;
+    background-color: $primary-ligth-blue;
     color: #ffffff;
   }
 }
