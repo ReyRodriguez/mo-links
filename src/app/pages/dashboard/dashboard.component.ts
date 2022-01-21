@@ -82,11 +82,13 @@ export class DashboardComponent implements OnInit {
 
   /**
    * @description Sends links data to api, dispatch the link to store and clear the form
+   * we fake an id comming from the server response
    */
   onSubmit(): void {
     const { name, url } = this.linksForm.value;
     this.httpService.createLink({ name, url }).subscribe((res) => {
-      this.store.dispatch(addLink({ link: { name, url } }));
+      let id = String(Math.floor(Math.random() * 100));
+      this.store.dispatch(addLink({ link: { id, name, url } }));
       this.linksForm.reset();
     });
   }
