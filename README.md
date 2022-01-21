@@ -1,6 +1,6 @@
 # MoLinks
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
+This is part of the Front-end Technical Test for Mo technologies
 
 ## Development server
 
