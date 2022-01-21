@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { LoginGuard } from '../services/guards/login.guard';
 import { LayoutComponent } from './layout.component';
-// import { LoginGuard } from '../services/guards/login.guard';
-// import { NotLoggedinGuard } from '../services/guards/not-loggedin.guard';
 
 const routes: Routes = [
     {
@@ -19,7 +18,6 @@ const routes: Routes = [
             },
             {
                 path: 'register',
-                //canActivate: [NotLoggedinGuard],
                 loadChildren: () =>
                     import('../pages/register/register.module').then(
                         m => m.RegisterModule,
@@ -27,7 +25,6 @@ const routes: Routes = [
             },
             {
                 path: 'login',
-                //canActivate: [LoginGuard],
                 loadChildren: () =>
                     import('../pages/login/login.module').then(
                         m => m.LoginModule,
@@ -35,7 +32,7 @@ const routes: Routes = [
             },
             {
                 path: 'dashboard',
-                //canActivate: [LoginGuard],
+                canActivate: [LoginGuard],
                 loadChildren: () =>
                     import('../pages/dashboard/dashboard.module').then(
                         m => m.DashboardModule,

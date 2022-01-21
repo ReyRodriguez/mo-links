@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http/http.service';
 
 @Component({
   selector: 'app-register',
@@ -21,7 +23,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   state = 'none';
-  constructor(private fb: FormBuilder
+  constructor(private fb: FormBuilder, private router: Router, private httpService: HttpService
 ) { }
   registerForm = this.fb.group({
     name: ['', [Validators.required, Validators.maxLength(30)]],
@@ -38,11 +40,15 @@ export class RegisterComponent implements OnInit {
   }
 
   /**
-   * @description Enivia los datos del usuario a la apiy basado en la respuesta
-   * guarda el usuario en el local storage y redirige al listado
+   * @description Sends data to api and redirect depending on status response
    */
    onSubmit(): void {
-     
+    const { name, mail, password } = this.registerForm.value;
+    this.httpService
+      .signUpUser({ name, mail, password })
+      .subscribe(res => {
+        this.router.navigate(['app/login']);
+      });
   }
 
 }

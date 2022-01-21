@@ -7,7 +7,7 @@ import { Link } from 'src/app/interfaces/links.model';
   styleUrls: ['./links-list.component.scss']
 })
 export class LinksListComponent implements OnInit {
-  @Input() links: ReadonlyArray<Link> = [];
+  @Input() links: ReadonlyArray<Link>;
   @Output() remove = new EventEmitter<string>();
   constructor() { }
 

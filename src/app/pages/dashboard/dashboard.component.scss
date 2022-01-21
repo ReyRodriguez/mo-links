@@ -28,6 +28,26 @@ form {
   border-radius: 6px;
 }
 
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+input {
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 1em;
+  font-weight: 800;
+}
+
 .button-box {
   margin-top: 1em;
   display: flex;

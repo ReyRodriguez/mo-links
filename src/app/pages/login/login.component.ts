@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import { HttpService } from 'src/app/services/http/http.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,7 +22,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   state = 'none';
-  constructor(private fb: FormBuilder
+  constructor(private fb: FormBuilder, private router: Router, private httpService: HttpService
 ) { }
   loginForm = this.fb.group({
     mail: ['', [Validators.required, Validators.email]],
@@ -37,11 +38,18 @@ export class LoginComponent implements OnInit {
   }
 
   /**
-   * @description Enivia los datos del usuario a la apiy basado en la respuesta
-   * guarda el usuario en el local storage y redirige al listado
+   * @description Sends data to api and redirect depending on status response
    */
    onSubmit(): void {
-     
+    const { mail, password } = this.loginForm.value;
+    this.httpService
+      .logInUser({ mail, password })
+      .subscribe(res => {
+        localStorage.setItem('usuario', JSON.stringify(res));
+        this.router.navigate(['app/dashboard']);
+      });
   }
+
+  
 
 }

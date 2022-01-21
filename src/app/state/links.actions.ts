@@ -3,7 +3,7 @@ import { Link } from '../interfaces/links.model';
  
 export const addLink = createAction(
   '[Links List] Add Link',
-  props<{ id: string }>()
+  props<{ link: Link }>()
 );
  
 export const removeLink = createAction(

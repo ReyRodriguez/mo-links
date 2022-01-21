@@ -2,7 +2,6 @@
 @import "../../scss/variables";
 @import "../../scss/buttons";
 @import "../../scss/fonts";
-@import "../../scss/utils";
 
 .wrapper {
   display: flex;
@@ -10,6 +9,9 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  .form-box {
+    width: 30%;
+  }
 }
 form {
   margin: 10px auto;
@@ -29,50 +31,38 @@ label {
   margin-bottom: 8px;
 }
 
-label.light {
-  font-weight: 300;
-  display: inline;
-}
-
 input {
   background: #ffffff;
   border: 1px solid #dddddd;
   box-sizing: border-box;
   border-radius: 4px;
+  padding: 1em;
+  font-weight: 800;
 }
 
 @include small {
   form {
     max-width: 75%;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background: #ffffff;
-    box-shadow: 0px 0px 30px rgba(199, 199, 199, 0.55);
-    border-radius: 6px;
   }
 }
 @include medium {
   form {
     max-width: 60%;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background: #ffffff;
-    box-shadow: 0px 0px 30px rgba(199, 199, 199, 0.55);
-    border-radius: 6px;
   }
 }
 @include large {
   form {
     max-width: 100%;
-    margin: 10px auto;
-    padding: 10px 20px;
-    background: #ffffff;
-    box-shadow: 0px 0px 30px rgba(199, 199, 199, 0.55);
-    border-radius: 6px;
   }
 }
 
 .button-box {
   display: flex;
   justify-content: center;
+}
+
+.logo {
+  vertical-align: middle;
+  width: 346px;
+  height: 212px;
 }

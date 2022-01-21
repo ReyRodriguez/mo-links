@@ -8,7 +8,10 @@ import { catchError, map, retry } from 'rxjs/operators';
 })
 export class HttpService {
   linksUrl = 'https://private-anon-8bf6b557c3-henrybravo.apiary-mock.com/links';
-  getUserUrl = 'https://private-anon-9ea0964c59-henrybravo.apiary-mock.com/user/1'
+  deleteLinkUrl = 'https://private-anon-8bf6b557c3-henrybravo.apiary-mock.com/links/';
+  getUserUrl = 'https://private-anon-9ea0964c59-henrybravo.apiary-mock.com/user/1';
+  userLoginUrl = 'https://private-anon-8bf6b557c3-henrybravo.apiary-mock.com/login';
+  userSignUpUrl = 'https://private-anon-8bf6b557c3-henrybravo.apiary-mock.com/register';
   constructor(private http: HttpClient) { }
 
    getLinks() {
@@ -23,6 +26,55 @@ export class HttpService {
       catchError(this.handleError)
     );
   }
+
+  logInUser(user: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.http.post<any>(this.userLoginUrl, user, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  signUpUser(user: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.http.post<any>(this.userSignUpUrl, user, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  createLink(link: any): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      })
+    };
+    return this.http.post<any>(this.linksUrl, link, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+  deleteLink(id: any): Observable<any> {
+    const url = `${this.deleteLinkUrl}/${id}`;
+    return this.http.delete<any>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
+
+  
+
+  
 
   private handleError(error: HttpErrorResponse): Observable<any> {
     if (error.error instanceof ErrorEvent) {

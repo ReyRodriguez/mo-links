@@ -1,25 +1,28 @@
 <app-header [textButton]="'SIGNUP'" [redirectTo]="'./register'" ></app-header>
 <div class="wrapper" [@EnterLeave]="'flyIn'">
     
-    <div class="form-box" id="registerSection">
-        <img src="../../../assets/img/logo_transparent.png" alt="Links Logo" [routerLink]="['./home']">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <h1>LOGIN</h1>
-            <fieldset>
-               
-                <label for="email">Your email:</label>
-                <input type="email" formControlName="mail">
+    
+        <img src="../../../assets/img/logo_transparent.png" alt="Links Logo" [routerLink]="['./home']" class="logo">
+        <div class="form-box" id="registerSection">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 
-                <label for="password">Pasword:</label>
-                <input type="password" formControlName="password">
+                <fieldset>
+                    <h1>LOGIN</h1>
+                    <label for="email">Your email:</label>
+                    <input type="email" formControlName="mail">
+                    
+                    <label for="password">Pasword:</label>
+                    <input type="password" formControlName="password">
+                
+                </fieldset>
             
-            </fieldset>
+                <div class="button-box">
+                    <button [ngClass]="!loginForm.valid ? 'primary-button-disabled' : 'primary-button'" type="submit"
+                        [disabled]="!loginForm.valid">LOGIN</button>
+                </div>
+    
+            </form>
+        </div>
         
-            <div class="button-box">
-                <button [ngClass]="!loginForm.valid ? 'primary-button-disabled' : 'primary-button'" type="submit"
-                    [disabled]="!loginForm.valid">LOGIN</button>
-            </div>
-
-        </form>
-    </div>
+    
 </div>

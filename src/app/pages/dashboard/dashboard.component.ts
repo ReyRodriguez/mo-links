@@ -41,18 +41,35 @@ export class DashboardComponent implements OnInit {
         url: ['', [Validators.required]],
       });
 
-      onAdd(id: string) {
-        this.store.dispatch(addLink({ id }));
-      }
+      // onAdd(id: string) {
+        
+      // }
      
       onRemove(linkId: string) {
-        this.store.dispatch(removeLink({ linkId }));
+        if(confirm("Are you sure to delete the url?")) {
+          this.httpService
+            .deleteLink(linkId)
+            .subscribe((res) => {
+              this.store.dispatch(removeLink({ linkId }));
+          });
+          
+        }
+        
       }
 
   /**
    * @description Activa la animacion inicial
    */
    ngOnInit(): void {
+    this.httpService
+    .getLinks()
+    .subscribe((links) => {
+      let noComa = links.replace(/(.*?),\s*(\}|])/g, "$1$2")
+      
+      console.log(JSON.parse(noComa));
+      let linkss: Link[] = JSON.parse(noComa);
+      this.store.dispatch(retrievedLinkList( {links: linkss} ))
+    });
     this.state = ':enter';
 
 
@@ -64,15 +81,7 @@ export class DashboardComponent implements OnInit {
       
       });
 
-      this.httpService
-      .getLinks()
-      .subscribe((links) => {
-        let noComa = links.replace(/(.*?),\s*(\}|])/g, "$1$2")
-        
-        console.log(JSON.parse(noComa));
-        let linkss: Link[] = JSON.parse(noComa);
-        this.store.dispatch(retrievedLinkList( {links: linkss} ))
-      });
+      
   }
 
   
@@ -82,7 +91,14 @@ export class DashboardComponent implements OnInit {
    * guarda el usuario en el local storage y redirige al listado
    */
    onSubmit(): void {
-     
+    const { name, url } = this.linksForm.value;
+    this.httpService
+      .createLink({ name, url })
+      .subscribe(res => {
+        this.store.dispatch(addLink({ link: {name, url} }));
+        this.linksForm.reset()
+      });
+    
   }
 
 }
